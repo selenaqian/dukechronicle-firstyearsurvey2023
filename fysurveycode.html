@@ -15,7 +15,7 @@
         <canvas id="counselor" width="420" height="500"></canvas>
         <canvas id="religion" width="420" height="500"></canvas>
         <canvas id="computer" width="420" height="500"></canvas>
-        <canvas id="political" width="420" height="500"></canvas>
+        <canvas id="political" width="420" height="100"></canvas>
         <canvas id="tenting" width="420" height="500"></canvas>
         <canvas id="phone" width="420" height="500"></canvas>
         <canvas id="alcohol-sex-drugs-fakeID" width="420" height="500"></canvas>
@@ -364,7 +364,6 @@
                     }
                 }
             });
-            //TODO: religion stacked bar chart - could also consider just a regular bar
             new Chart(document.getElementById("religion"), {
                 type: 'bar',
                 data: {
@@ -486,16 +485,35 @@
                     }
                 }
             });
-            //TODO: political stacked horizontal bar chart
             new Chart(document.getElementById("political"), {
-                type: 'pie',
+                type: 'horizontalBar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: [""],
                     datasets: [
                         {
-                            label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            label: "Very liberal",
+                            backgroundColor: "#3c4288",
+                            data: [27.5]
+                        },
+                        {
+                            label: "Somewhat liberal",
+                            backgroundColor: "#687cbd",
+                            data: [38.9]
+                        },
+                        {
+                            label: "Moderate",
+                            backgroundColor: "#bcbec0",
+                            data: [22.3]
+                        },
+                        {
+                            label: "Somewhat conservative",
+                            backgroundColor: "#b84545",
+                            data: [9.8]
+                        },
+                        {
+                            label: "Very conservative",
+                            backgroundColor: "#94322f",
+                            data: [1.6]
                         }
                     ]
                 },
@@ -504,19 +522,31 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: "Participants' Political Beliefs"
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                     },
                     tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*193) + ' (' + tooltipData + '%)';
                             }
                         }
                     }
