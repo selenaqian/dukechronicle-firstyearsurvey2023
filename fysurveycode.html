@@ -609,6 +609,7 @@
                     }
                 }
             });
+            //TODO: stacked horizontal bar chart
             new Chart(document.getElementById("SLGandGreek"), {
                 type: 'pie',
                 data: {
@@ -645,14 +646,14 @@
                 }
             });
             new Chart(document.getElementById("major"), {
-                type: 'pie',
+                type: 'horizontalBar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["1. Economics", "2. Biology", "3. Computer Science", "4 (tie). Electrical and Computer Engineering", "4 (tie). Biomedical Engineering", "6. Psychology", "7. Neuroscience", "8. Mechanical Engineering", "9 (tie). Mathematics", "9 (tie). Public Policy Studies", "9 (tie). Global Health"],
                     datasets: [
                         {
                             label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            backgroundColor: "#f7941d",
+                            data: [22, 20, 16, 14, 14, 12, 11, 10, 7, 7, 7]
                         }
                     ]
                 },
@@ -661,7 +662,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Top 10 Intended Majors'
                     },
                     tooltips: {
                         callbacks: {
@@ -669,11 +670,7 @@
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
                                 var tooltipLabel = data.labels[tooltipItem.index];
                                 var tooltipData = allData[tooltipItem.index];
-                                var total = 0;
-                                for (var i in allData) {
-                                    total += allData[i];
-                                }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                var tooltipPercentage = Math.round((tooltipData / 192) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
                             }
                         }
                     }
