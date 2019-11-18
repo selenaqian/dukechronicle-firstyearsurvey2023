@@ -277,17 +277,17 @@
                     datasets: [
                         {
                             label: 'SAT',
-                            data: [67],
+                            data: [34.7],
                             backgroundColor: "#1d1e49",
                         },
                         {
                             label: 'Both',
-                            data: [60],
+                            data: [31.1],
                             backgroundColor: "#687cbd",
                         },
                         {
                             label: 'ACT',
-                            data: [66],
+                            data: [34.2],
                             backgroundColor: "#a3b4dd",
                         }
                     ]
@@ -303,26 +303,30 @@
                     },
                     scales: {
                         xAxes: [{
-                            stacked: true
+                            stacked: true,
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
                         }],
                         yAxes: [{
                             stacked: true
                         }]
                     },
-/*                    tooltips: {
+                    tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*193) + ' (' + tooltipData + '%)';
                             }
                         }
-                    }*/
+                    }
                 }
             });
             new Chart(document.getElementById("counselor"), {
@@ -445,20 +449,6 @@
                             }
                         }
                     }
-/*                    tooltips: {
-                        callbacks: {
-                            label: function(tooltipItem, data) {
-                                var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
-                                var tooltipData = allData[tooltipItem.index];
-                                var total = 0;
-                                for (var i in allData) {
-                                    total += allData[i];
-                                }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
-                            }
-                        }
-                    }*/
                 }
             });
             new Chart(document.getElementById("computer"), {
