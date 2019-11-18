@@ -1,0 +1,678 @@
+<html>
+    <head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <canvas id="ethnicity" width="420" height="500"></canvas>
+        <canvas id="income" width="420" height="360"></canvas>
+        <canvas id="international" width="420" height="500"></canvas>
+        <canvas id="prattvtrinity" width="420" height="500"></canvas>
+        <canvas id="ed-rd" width="420" height="500"></canvas>
+        <canvas id="public-private" width="420" height="500"></canvas>
+        <canvas id="firstchoice" width="420" height="500"></canvas>
+        <canvas id="SAT-ACT" width="420" height="200"></canvas>
+        <canvas id="counselor" width="420" height="500"></canvas>
+        <canvas id="religion" width="420" height="500"></canvas>
+        <canvas id="computer" width="420" height="500"></canvas>
+        <canvas id="political" width="420" height="500"></canvas>
+        <canvas id="tenting" width="420" height="500"></canvas>
+        <canvas id="phone" width="420" height="500"></canvas>
+        <canvas id="alcohol-sex-drugs-fakeID" width="420" height="500"></canvas>
+        <canvas id="bballgameswatched" width="420" height="500"></canvas>
+        <canvas id="SLGandGreek" width="420" height="500"></canvas>
+        <canvas id="major" width="420" height="500"></canvas>
+        <script>
+            new Chart(document.getElementById("ethnicity"), {
+                type: 'pie',
+                data: {
+                    labels: ["Asian", "Other", "Native American or Alaska Native", "Black or African American", "Hispanic or Latinx", "White"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#3a2444", "#e6e7e8", "#e9d6e9", "#c7a5ce", "#9d6aad", "#6e3e88"],
+                            data: [79, 12, 1, 12, 22, 67]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants by Race/Ethnicity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("income"), {
+                type: 'bar',
+                data: {
+                    labels: ["<$40,000", "$40,000-$80,000", "$80,000-$125,000", "$125,000-$250,000", "$250,000-$500,000", ">$500,000"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#9d6aad", "#9d6aad", "#9d6aad", "#9d6aad", "#9d6aad", "#9d6aad"],
+                            data: [17, 26, 39, 42, 42, 23]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Family Income Distribution'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("international"), {
+                type: 'pie',
+                data: {
+                    labels: ["Domestic", "International"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#6e3e88", "#c7a5ce"],
+                            data: [179, 14]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'International and Domestic Students'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("prattvtrinity"), {
+                type: 'pie',
+                data: {
+                    labels: ["Trinity", "Pratt"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd"],
+                            data: [145, 48]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("ed-rd"), {
+                type: 'pie',
+                data: {
+                    labels: ["Regular Decision", "Early Decision"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd"],
+                            data: [113, 80]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Early vs. Regular Decision Participants'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("public-private"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Type of High School'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });          
+            new Chart(document.getElementById("firstchoice"), {
+                type: 'pie',
+                data: {
+                    labels: ["First choice", "Not first choice"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd"],
+                            data: [104, 88]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Was Duke your first choice school?'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("SAT-ACT"), {
+                type: 'horizontalBar',
+                data: {
+                    labels: [""],
+                    datasets: [
+                        {
+                            label: 'SAT',
+                            data: [67],
+                            backgroundColor: "#1d1e49",
+                        },
+                        {
+                            label: 'Both',
+                            data: [60],
+                            backgroundColor: "#687cbd",
+                        },
+                        {
+                            label: 'ACT',
+                            data: [66],
+                            backgroundColor: "#a3b4dd",
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Standardized Testing Choice'
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
+                    },
+/*                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }*/
+                }
+            });
+            new Chart(document.getElementById("counselor"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("religion"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("computer"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("political"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("tenting"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("phone"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("alcohol-sex-drugs-fakeID"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("bballgameswatched"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("SLGandGreek"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+            new Chart(document.getElementById("major"), {
+                type: 'pie',
+                data: {
+                    labels: ["Public", "Private", "Other"],
+                    datasets: [
+                        {
+                            label: "Students",
+                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
+                            data: [139, 50, 4]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: false,
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Participants in Pratt vs. Trinity'
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
