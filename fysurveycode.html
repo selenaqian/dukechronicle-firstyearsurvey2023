@@ -326,12 +326,12 @@
             new Chart(document.getElementById("counselor"), {
                 type: 'pie',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["Did not hire", "Hired private counselor"],
                     datasets: [
                         {
                             label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            backgroundColor: ["#687cbd", "#1d1e49"],
+                            data: [151, 41]
                         }
                     ]
                 },
@@ -340,7 +340,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Did you hire a private admissions counselor?'
                     },
                     tooltips: {
                         callbacks: {
