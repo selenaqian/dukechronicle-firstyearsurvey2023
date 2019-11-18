@@ -23,6 +23,8 @@
         <canvas id="SLGandGreek" width="420" height="500"></canvas>
         <canvas id="major" width="420" height="500"></canvas>
         <script>
+            Chart.defaults.global.defaultFontFamily = 'Open Sans';
+            Chart.defaults.global.defaultFontSize = 12;
             new Chart(document.getElementById("ethnicity"), {
                 type: 'pie',
                 data: {
