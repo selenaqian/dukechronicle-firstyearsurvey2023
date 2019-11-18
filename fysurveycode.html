@@ -538,6 +538,7 @@
                     }
                 }
             });
+            //TODO: stacked horizontal bar chart
             new Chart(document.getElementById("alcohol-sex-drugs-fakeID"), {
                 type: 'pie',
                 data: {
@@ -574,14 +575,14 @@
                 }
             });
             new Chart(document.getElementById("bballgameswatched"), {
-                type: 'pie',
+                type: 'bar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["0", "1 to 10", "10 to 20", "20 to 30", "31+"],
                     datasets: [
                         {
                             label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            backgroundColor: "#f7941d",
+                            data: [65, 100, 16, 8, 2]
                         }
                     ]
                 },
@@ -590,7 +591,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Basketball Games Watched by Participants in the past year'
                     },
                     tooltips: {
                         callbacks: {
