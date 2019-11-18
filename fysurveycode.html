@@ -413,6 +413,9 @@
                         }
                     ]
                 },
+                plugins: {
+                    stacked100: { enable: true }
+                },
                 options: {
                     responsive: false,
                     legend: { display: false },
@@ -432,8 +435,7 @@
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                //TODO: FIX THIS
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
