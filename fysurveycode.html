@@ -18,9 +18,9 @@
         <canvas id="political" width="420" height="100"></canvas>
         <canvas id="tenting" width="420" height="100"></canvas>
         <canvas id="phone" width="420" height="500"></canvas>
-        <canvas id="alcohol-sex-drugs-fakeID" width="420" height="500"></canvas>
+        <canvas id="alcohol-sex-drugs-fakeID" width="420" height="300"></canvas>
         <canvas id="bballgameswatched" width="420" height="500"></canvas>
-        <canvas id="SLGandGreek" width="420" height="500"></canvas>
+        <canvas id="SLGandGreek" width="420" height="200"></canvas>
         <canvas id="major" width="420" height="500"></canvas>
         <script>
             Chart.defaults.global.defaultFontFamily = 'Open Sans';
@@ -741,16 +741,35 @@
                     }
                 }
             });
-            //TODO: stacked horizontal bar chart
             new Chart(document.getElementById("SLGandGreek"), {
-                type: 'pie',
+                type: 'horizontalBar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["Greek Life", "SLGs"],
                     datasets: [
                         {
-                            label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            label: "Not interested",
+                            backgroundColor: "#a55a26",
+                            data: [33.7, 8.3]
+                        },
+                        {
+                            label: "Slightly interested",
+                            backgroundColor: "#cb7829",
+                            data: [25.4, 24.9]
+                        },
+                        {
+                            label: "Moderately interested",
+                            backgroundColor: "#f7941d",
+                            data: [17.6, 37.3]
+                        },
+                        {
+                            label: "Very interested",
+                            backgroundColor: "#e8b489",
+                            data: [16.1, 23.8]
+                        },
+                        {
+                            label: "Extremely interested",
+                            backgroundColor: "#f1dcc7",
+                            data: [7.3, 5.7]
                         }
                     ]
                 },
@@ -759,19 +778,32 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: "Participants' Interest In Greek Life and SLGs",
+                        fontSize: 14
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                     },
                     tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*193) + ' (' + tooltipData + '%)';
                             }
                         }
                     }
