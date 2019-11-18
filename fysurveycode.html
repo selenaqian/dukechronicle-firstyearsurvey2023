@@ -358,6 +358,7 @@
                     }
                 }
             });
+            //TODO: religion stacked bar chart - could also consider just a regular bar
             new Chart(document.getElementById("religion"), {
                 type: 'pie',
                 data: {
@@ -396,12 +397,12 @@
             new Chart(document.getElementById("computer"), {
                 type: 'pie',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["Mac", "Windows (PC)"],
                     datasets: [
                         {
                             label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            backgroundColor: ["#578d3f", "#a8c181"],
+                            data: [123, 69]
                         }
                     ]
                 },
@@ -410,7 +411,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Computer Choice'
                     },
                     tooltips: {
                         callbacks: {
