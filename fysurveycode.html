@@ -16,7 +16,7 @@
         <canvas id="religion" width="420" height="500"></canvas>
         <canvas id="computer" width="420" height="500"></canvas>
         <canvas id="political" width="420" height="100"></canvas>
-        <canvas id="tenting" width="420" height="500"></canvas>
+        <canvas id="tenting" width="420" height="100"></canvas>
         <canvas id="phone" width="420" height="500"></canvas>
         <canvas id="alcohol-sex-drugs-fakeID" width="420" height="500"></canvas>
         <canvas id="bballgameswatched" width="420" height="500"></canvas>
@@ -552,16 +552,35 @@
                     }
                 }
             });
-            //TODO: tenting stacked horizontal bar chart
             new Chart(document.getElementById("tenting"), {
-                type: 'pie',
+                type: 'horizontalBar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: [""],
                     datasets: [
                         {
-                            label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            label: "Definitely not",
+                            backgroundColor: "#a55a26",
+                            data: [16.2]
+                        },
+                        {
+                            label: "Probably not",
+                            backgroundColor: "#cb7829",
+                            data: [30.4]
+                        },
+                        {
+                            label: "Might or might not",
+                            backgroundColor: "#f7941d",
+                            data: [35.6]
+                        },
+                        {
+                            label: "Probably yes",
+                            backgroundColor: "#e8b489",
+                            data: [16.2]
+                        },
+                        {
+                            label: "Definitely yes",
+                            backgroundColor: "#f1dcc7",
+                            data: [1.6]
                         }
                     ]
                 },
@@ -570,19 +589,31 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: "Do you plan to tent in your first year?"
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                     },
                     tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*191) + ' (' + tooltipData + '%)';
                             }
                         }
                     }
@@ -623,16 +654,20 @@
                     }
                 }
             });
-            //TODO: stacked horizontal bar chart
             new Chart(document.getElementById("alcohol-sex-drugs-fakeID"), {
-                type: 'pie',
+                type: 'horizontalBar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["Drank Alcohol", "Had Sex", "Done Drugs", "Obtained a fake ID"],
                     datasets: [
                         {
-                            label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            label: "Yes",
+                            backgroundColor: "#f7941d",
+                            data: [68.4, 30.1, 29, 7.3]
+                        },
+                        {
+                            label: "No",
+                            backgroundColor: "#e6e7e8",
+                            data: [31.6, 69.9, 71, 92.7]
                         }
                     ]
                 },
@@ -641,19 +676,31 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Have you done any of the following?'
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true,
+                            ticks: {
+                                min: 0,
+                                max: 100
+                            }
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                     },
                     tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
-                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipLabel = data.datasets[tooltipItem.datasetIndex].label;
                                 var tooltipData = allData[tooltipItem.index];
                                 var total = 0;
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*193) + ' (' + tooltipData + '%)';
                             }
                         }
                     }
