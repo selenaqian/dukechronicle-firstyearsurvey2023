@@ -362,14 +362,54 @@
             });
             //TODO: religion stacked bar chart - could also consider just a regular bar
             new Chart(document.getElementById("religion"), {
-                type: 'pie',
+                type: 'bar',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: [""],
                     datasets: [
                         {
-                            label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            label: "Agnostic",
+                            backgroundColor: "#1d1e49",
+                            data: [20.9]
+                        },
+                        {
+                            label: "Protestant",
+                            backgroundColor: "#3c4288",
+                            data: [17.1]
+                        },
+                        {
+                            label: "Atheist",
+                            backgroundColor: "#687cbd",
+                            data: [16.6]
+                        },
+                        {
+                            label: "Catholic",
+                            backgroundColor: "#a3b4dd",
+                            data: [12.8]
+                        },
+                        {
+                            label: "Jewish",
+                            backgroundColor: "#d6e1f3",
+                            data: [12.3]
+                        },
+                        {
+                            label: "Hindu",
+                            backgroundColor: "#c7a5ce",
+                            data: [10.2]
+                        },
+                        {
+                            label: "Muslim",
+                            backgroundColor: "#9d6aad",
+                            data: [1.6]
+                        },
+                        {
+                            label: "Buddhist",
+                            backgroundColor: "#6e3e88",
+                            data: [0.5]
+                        },
+                        {
+                            label: "Other",
+                            backgroundColor: "#d1d3d4",
+                            data: [8]
                         }
                     ]
                 },
@@ -378,9 +418,32 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Religious Beliefs'
+                    },
+                    scales: {
+                        xAxes: [{
+                            stacked: true
+                        }],
+                        yAxes: [{
+                            stacked: true
+                        }]
                     },
                     tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                var allData = data.datasets[tooltipItem.datasetIndex].data;
+                                //TODO: FIX THIS
+                                var tooltipLabel = data.labels[tooltipItem.index];
+                                var tooltipData = allData[tooltipItem.index];
+                                var total = 0;
+                                for (var i in allData) {
+                                    total += allData[i];
+                                }
+                                return tooltipLabel + ': ' + tooltipData + '%';
+                            }
+                        }
+                    }
+/*                    tooltips: {
                         callbacks: {
                             label: function(tooltipItem, data) {
                                 var allData = data.datasets[tooltipItem.datasetIndex].data;
@@ -393,7 +456,7 @@
                                 var tooltipPercentage = Math.round((tooltipData / total) * 100);return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
                             }
                         }
-                    }
+                    }*/
                 }
             });
             new Chart(document.getElementById("computer"), {
