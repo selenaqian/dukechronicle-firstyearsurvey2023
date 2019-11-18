@@ -445,7 +445,7 @@
                                 for (var i in allData) {
                                     total += allData[i];
                                 }
-                                return tooltipLabel + ': ' + tooltipData + '%';
+                                return tooltipLabel + ': ' + Math.round(tooltipData/100*187) + ' (' + tooltipData + '%)';
                             }
                         }
                     }
