@@ -429,6 +429,7 @@
                     }
                 }
             });
+            //TODO: political stacked horizontal bar chart
             new Chart(document.getElementById("political"), {
                 type: 'pie',
                 data: {
@@ -464,6 +465,7 @@
                     }
                 }
             });
+            //TODO: tenting stacked horizontal bar chart
             new Chart(document.getElementById("tenting"), {
                 type: 'pie',
                 data: {
@@ -502,12 +504,12 @@
             new Chart(document.getElementById("phone"), {
                 type: 'pie',
                 data: {
-                    labels: ["Public", "Private", "Other"],
+                    labels: ["iPhone", "Android smartphone"],
                     datasets: [
                         {
                             label: "Students",
-                            backgroundColor: ["#1d1e49", "#687cbd", "#d1d3d4"],
-                            data: [139, 50, 4]
+                            backgroundColor: ["#578d3f", "#a8c181"],
+                            data: [177, 15]
                         }
                     ]
                 },
@@ -516,7 +518,7 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: 'Participants in Pratt vs. Trinity'
+                        text: 'Smartphone Choice'
                     },
                     tooltips: {
                         callbacks: {
